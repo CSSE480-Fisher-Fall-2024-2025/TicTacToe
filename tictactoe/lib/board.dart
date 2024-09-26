@@ -15,12 +15,25 @@ class Board extends StatelessWidget {
   Widget build(BuildContext context) {
     var buttons = <Widget>[];
     for (int k = 0; k < 9; k++) {
-      var imageFilename = "assets/images/blank.png";
-      if (game.board[k] == TicTacToeMark.x) {
-        imageFilename = "assets/images/x.png";
-      } else if (game.board[k] == TicTacToeMark.o) {
-        imageFilename = "assets/images/o.png";
+      var imageFilename = "";
+      switch (game.board[k]) {
+        case TicTacToeMark.none:
+          imageFilename = "assets/images/blank.png";
+          break;
+        case TicTacToeMark.x:
+          imageFilename = "assets/images/x.png";
+          break;
+        case TicTacToeMark.o:
+          imageFilename = "assets/images/o.png";
+          break;
       }
+
+      // var imageFilename = "assets/images/blank.png";
+      // if (game.board[k] == TicTacToeMark.x) {
+      //   imageFilename = "assets/images/x.png";
+      // } else if (game.board[k] == TicTacToeMark.o) {
+      //   imageFilename = "assets/images/o.png";
+      // }
       buttons.add(
         InkWell(
           onTap: () {
